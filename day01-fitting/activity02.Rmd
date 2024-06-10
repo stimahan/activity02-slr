@@ -56,12 +56,13 @@ In the R code chunk below titled `load-data`, you will type the code that reads 
 -   Assign this data set into a data frame named `hfi` (short for "Human Freedom Index").
 
 ```{r load-data}
-
+hfi <- readr::read_csv("hfi.csv")
 ```
 
 After doing this and viewing the loaded data, answer the following questions:
 
 1.  What are the dimensions of the dataset? What does each row represent?
+    1458 rows and 123 variables/columns. The rows show human freedom data for different countries from 2008-2016.
 
 The dataset spans a lot of years. We are only interested in data from year 2016. In the R code chunk below titled `hfi-2016`, type the code that does the following:
 
@@ -69,7 +70,8 @@ The dataset spans a lot of years. We are only interested in data from year 2016.
 -   Assigns the result to a data frame named `hfi_2016`.
 
 ```{r hfi-2016}
-
+hfi_2016 <- hfi |>
+  filter(year == 2016)
 ```
 
 ### 1. Identify our research question(s)

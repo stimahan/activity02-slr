@@ -181,16 +181,17 @@ To assess our model fit, we can use $R^2$ (the coefficient of determination), th
 
 -   In the code chunk below titled `glance-lm`, replace "verbatim" with "r" just before the code chunk title.
 
-```{verbatim glance-mod}
+```{r glance-mod}
 glance(slr_mod)
 ```
 
 After doing this and running the code, answer the following questions:
 
-7.  What is the value of $R^2$ for this model?
+7.  What is the value of $R^2$ for this model? 
+0.714
 
 8.  What does this value mean in the context of this model? Think about what would a "good" value of $R^2$ would be? Can/should this value be "perfect"?
-
+  The regression line explains about 71.4% of the variation in the y-value. If the r^2 value is one, it means that all of the predicted values are identical to the observed values, which would be ideal but not always likely.
 #### 4.B: Assess with test/train
 
 You previously fit a model and evaluated it using the exact same data. This is a bit of circular reasoning and does not provide much information about the model's performance. Now we will work through the test/train process of fitting and assessing a simple linear regression model.
@@ -206,7 +207,7 @@ Now, you will use your training dataset to fit a SLR model.
 
 -   In the code chunk below titled `train-fit-lm`, replace "verbatim" with "r" just before the code chunk title and update the data set to your training R object you just created.
 
-```{verbatim train-fit-lm}
+```{r train-fit-lm}
 slr_train <- lm_spec %>% 
   fit(pf_score ~ pf_expression_control, data = hfi_2016)
 
@@ -217,7 +218,7 @@ Notice that you can reuse the `lm_spec` specification because we are still doing
 
 9.  Using the `tidy` output, update the below formula with the estimated parameters. That is, replace "intercept" and "slope" with the appropriate values
 
-$\widehat{\texttt{pf\\_score}} = intercept + slope \times \texttt{pf\\_expression\\_control}$
+$\widehat{\texttt{pf\\_score}} = 4.28 + 0.54 \times \texttt{pf\\_expression\\_control}$
 
 10. Interpret each of the estimated parameters from (10) in the context of this research question. That is, what do these values represent?
 
@@ -225,7 +226,7 @@ Now we will assess using the testing data set.
 
 -   In the code chunk below titled `train-fit-lm`, replace "verbatim" with "r" just before the code chunk title and update `data_test` to whatever R object you assigned your testing data to above.
 
-```{verbatim glance-test}
+```{r glance-test}
 test_aug <- augment(slr_train, new_data = data_test)
 test_aug
 ```

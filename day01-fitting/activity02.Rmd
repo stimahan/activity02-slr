@@ -134,7 +134,7 @@ To begin, we will create a `{parsnip}` specification for a linear model.
 
 -   In the code chunk below titled `parsnip-spec`, replace "verbatim" with "r" just before the code chunk title.
 
-```{verbatim parsnip-spec}
+```{r parsnip-spec}
 lm_spec <- linear_reg() %>%
   set_mode("regression") %>%
   set_engine("lm")
@@ -150,7 +150,7 @@ Using this specification, we can now fit our model: $\texttt{pf\\_score} = \beta
 
 -   In the code chunk below titled `fit-lm`, replace "verbatim" with "r" just before the code chunk title.
 
-```{verbatim fit-lm}
+```{r fit-lm}
 slr_mod <- lm_spec %>% 
   fit(pf_score ~ pf_expression_control, data = hfi_2016)
 
@@ -161,7 +161,7 @@ The above code fits our SLR model, then provides a `tidy` parameter estimates ta
 
 5.  Using the `tidy` output, update the below formula with the estimated parameters. That is, replace "intercept" and "slope" with the appropriate values
 
-$\widehat{\texttt{pf\\_score}} = intercept + slope \times \texttt{pf\\_expression\\_control}$
+$\widehat{\texttt{pf\\_score}} = 4.28 + 0.54 \times \texttt{pf\\_expression\\_control}$
 
 6.  Interpret each of the estimated parameters from (5) in the context of this research question. That is, what do these values represent?
 

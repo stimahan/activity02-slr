@@ -90,9 +90,16 @@ Answer the following questions (use your markdown skills) and complete the follo
 -   In the R code chunk below titled `univariable-plots`, type the R code that displays this plot for `pf_expression_control`.
 
 ```{r distribution-plots}
-
+hfi_2016 |>
+  ggplot(aes(x = countries, y = pf_score)) +
+  geom_bar(stat = "identity")
 ```
 
+```{r distribution-plots}
+hfi_2016 |>
+  ggplot(aes(x = countries, y = pf_expression_control)) +
+  geom_bar(stat = "identity")
+```
 4.  Comment on each of these two distributions. Be sure to describe their centers, spread, shape, and any potential outliers.
 
 5.  What type of plot would you use to display the relationship between the personal freedom score, `pf_score`, and the political pressures and controls on media content index,`pf_expression_control`?
@@ -100,10 +107,14 @@ Answer the following questions (use your markdown skills) and complete the follo
 -   In the R code chunk below titled `relationship-plot`, plot this relationship using the variable `pf_expression_control` as the predictor/explanatory variable.
 
 ```{r relationship-plot}
-
+hfi_2016 |>
+  ggplot(aes(x = pf_expression_control, y = pf_score)) +
+  geom_point()
 ```
 
 4.  Does the relationship look linear? If you knew a country's `pf_expression_control`, or its score out of 10, with 0 being the most, of political pressures and controls on media content, would you be comfortable using a linear model to predict the personal freedom score?
+
+The relationship looks relatively linear. I would feel pretty comfortable using a linear model to predict the personal freedom score.
 
 #### Challenge
 
